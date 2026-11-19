@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  font-family: var(--el-font-family);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--color-primary-soft);
+}
+
+/* 细滚动条，工作台里到处是内部滚动区域 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-text-primary) 22%, transparent) transparent;
+}
+
+.el-card {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* ===== Element Plus 统一手感 ===== */
+.el-button {
+  font-weight: 600;
+}
+.el-button--primary:not(.is-plain):not(.is-text):not(.is-link) {
+  --el-button-hover-bg-color: var(--color-primary-dark);
+  --el-button-hover-border-color: var(--color-primary-dark);
+}
+.el-dialog {
+  border-radius: var(--radius-lg);
+}
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  box-shadow: 0 0 0 1px var(--color-border) inset;
+}
+
+/* ===== 新页面通用骨架（首页 / 价目表 / 用户中心 / 登录） ===== */
+.lm-page {
+  height: 100%;
+  overflow-y: auto;
+}
+.lm-container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.lm-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+}
+.lm-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.lm-money {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+@media (max-width: 860px) {
+  .lm-page.account-page > .lm-container {
+    padding-block: 16px max(28px, env(safe-area-inset-bottom));
+    padding-inline: clamp(12px, 3.5vw, 22px);
+  }
+  .lm-page.account-page .el-pagination { justify-content: center; --el-pagination-button-width: 28px; }
+  .account-page .el-pagination.is-background .el-pager li,
+  .account-page .el-pagination.is-background button { margin-inline: 2px; }
+  .account-page .el-input__inner, .account-page .el-textarea__inner { font-size: 16px; }
+  .account-page.account-dashboard .head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 16px; }
+  .account-page.account-dashboard .head h1 { font-size: 22px; }
+  .account-dashboard .head p { line-height: 1.65; }
+  .account-dashboard .head > .el-button { width: 100%; min-height: 42px; margin: 0; }
+  .account-page.account-dashboard .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .account-page.account-dashboard .card { min-width: 0; padding: 12px; gap: 5px; }
+  .account-page.account-dashboard .card > b { font-size: 20px; overflow-wrap: anywhere; }
+  .account-dashboard .cards > .card:nth-child(odd):not(:has(~ .card)) { grid-column: 1 / -1; }
+  .account-dashboard .account-range {
+    display: flex; width: 100%; min-width: 0; gap: 4px; padding: 4px; border-radius: var(--radius-md);
+    background: var(--color-bg-secondary);
+  }
+  .account-dashboard .account-range .el-radio-button { flex: 1 1 0; min-width: 0; }
+  .account-dashboard .account-range .el-radio-button__inner {
+    display: grid; width: 100%; min-height: 36px; place-items: center; padding: 4px; border: 0;
+    border-radius: var(--radius-sm); box-shadow: none; background: transparent;
+  }
+  .account-dashboard .account-range .el-radio-button.is-active .el-radio-button__inner {
+    background: var(--color-card); color: var(--color-primary-dark); font-weight: 700; box-shadow: var(--shadow-sm);
+  }
+  .account-dashboard .el-tabs__item { min-height: 44px; padding-inline: 10px; }
+  .el-message-box { width: min(420px, calc(100vw - 24px)); max-height: 90dvh; overflow-y: auto; }
+  .el-message-box__btns { flex-wrap: wrap; gap: 8px; }
+  .el-message-box__btns > .el-button { margin-left: 0; }
+}
+
+/* ===== 旧工作台页面沿用的通用类 ===== */
+.page-container { height: 100%; display: flex; flex-direction: column; gap: 16px; padding: 16px; overflow-y: auto; }
+.page-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: var(--color-card); padding: 12px 16px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+.page-header .el-form-item { margin-bottom: 0; }
+.page-title { font-size: 15px; font-weight: 600; color: var(--color-text-primary); }
+.page-actions { display: flex; align-items: center; gap: 8px; }
+.pagination-wrap { display: flex; justify-content: flex-end; padding-top: 12px; }
+
+.flex { display: flex; }
+.flex-1 { flex: 1; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-2 { margin-bottom: 8px; }

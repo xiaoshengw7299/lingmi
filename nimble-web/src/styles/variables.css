@@ -1,0 +1,149 @@
+/**
+ * 灵米 LingMI 设计令牌。
+ * 暖白底 + 灵感绿，创作工作台风格。业务页只引用这里的变量，不要写死色值。
+ * 选择器写成 :root:root 是为了盖过 Element Plus 按需加载的主题变量，否则它晚加载就会把品牌色盖回默认蓝。
+ */
+:root:root {
+  /* ===== 品牌 ===== */
+  --color-primary: #0b8f5f;
+  --color-primary-light: #34b27f;
+  --color-primary-dark: #08724c;
+  --color-primary-soft: #e7f5ee;
+  --color-primary-line: #bfe3d1;
+  /* 稻谷金：用于"省钱"、优惠、强调 */
+  --color-accent: #e39b12;
+  --color-accent-soft: #fff3d6;
+
+  --color-success: #0b8f5f;
+  --color-warning: #d98a0b;
+  --color-error: #d64545;
+  --color-info: #3b6fd4;
+
+  /* ===== 文字 / 边框 / 背景 ===== */
+  --color-text-primary: #17231d;
+  --color-text-secondary: #55645b;
+  --color-text-tertiary: #8a978f;
+  --color-border: #e6e2d6;
+  --color-divider: #efece2;
+  --color-background: #faf8f3;
+  --color-bg-secondary: #f3f0e7;
+  --color-card: #ffffff;
+  --color-error-soft: #fdecec;
+  --color-warning-soft: #fff4e0;
+  --color-success-soft: #e7f5ee;
+  --color-info-soft: #e6f0ff;
+  --color-overlay: rgba(23, 35, 29, 0.4);
+
+  /* ===== 形状 / 阴影 ===== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 2px rgba(23, 35, 29, 0.05);
+  --shadow-md: 0 8px 24px rgba(23, 35, 29, 0.07);
+  --shadow-lg: 0 20px 48px rgba(23, 35, 29, 0.1);
+
+  /* ===== 布局 ===== */
+  --sidebar-width: 232px;
+  --sidebar-collapsed-width: 72px;
+  --header-height: 60px;
+  --transition: all 0.2s ease;
+
+  /* ===== 旧页面沿用的变量名，指向新令牌 ===== */
+  --primary-color: var(--color-primary);
+  --border-radius: var(--radius-sm);
+  --shadow: var(--shadow-md);
+  --bg-color: var(--color-background);
+  --card-bg: var(--color-card);
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --text-placeholder: var(--color-text-tertiary);
+  --border-color: var(--color-border);
+
+  /* ===== Element Plus 主题 ===== */
+  --el-color-primary: var(--color-primary);
+  --el-color-primary-light-3: #54b18f;
+  --el-color-primary-light-5: #85c7af;
+  --el-color-primary-light-7: #b6ddcf;
+  --el-color-primary-light-8: #cee9df;
+  --el-color-primary-light-9: #e6f3ec;
+  --el-color-primary-dark-2: #097250;
+  --el-color-success: var(--color-success);
+  --el-color-warning: var(--color-warning);
+  --el-color-danger: var(--color-error);
+  --el-color-info: #7b887f;
+  --el-text-color-primary: var(--color-text-primary);
+  --el-text-color-regular: var(--color-text-secondary);
+  --el-text-color-secondary: var(--color-text-secondary);
+  --el-text-color-placeholder: var(--color-text-tertiary);
+  --el-border-color: var(--color-border);
+  --el-border-color-light: var(--color-divider);
+  --el-border-color-lighter: var(--color-divider);
+  --el-border-color-extra-light: var(--color-divider);
+  --el-bg-color-page: var(--color-background);
+  --el-bg-color: var(--color-card);
+  --el-bg-color-overlay: var(--color-card);
+  --el-fill-color-blank: var(--color-card);
+  --el-fill-color-light: var(--color-bg-secondary);
+  --el-fill-color: var(--color-bg-secondary);
+  --el-mask-color: var(--color-overlay);
+  --el-border-radius-base: 10px;
+  --el-border-radius-small: 8px;
+  --el-font-family: 'PingFang SC', 'HarmonyOS Sans SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color-scheme: light;
+}
+
+/* ===== 暗黑主题（科技风）：深蓝黑底 + 青色强调，只覆盖令牌，业务页面不需要任何改动 ===== */
+:root.dark:root {
+  --color-primary: #0fb5d4;
+  --color-primary-light: #38d0ee;
+  --color-primary-dark: #7fe3f7;
+  --color-primary-soft: #0e2c3a;
+  --color-primary-line: #17566b;
+  --color-accent: #f0b13a;
+  --color-accent-soft: #3a2f14;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+  --color-error-soft: #3a1d24;
+  --color-warning-soft: #3a2f14;
+  --color-success-soft: #10302a;
+  --color-info-soft: #14284a;
+  --color-overlay: rgba(2, 6, 12, 0.66);
+
+  --color-text-primary: #e8eef7;
+  --color-text-secondary: #9aabc2;
+  --color-text-tertiary: #66778f;
+  --color-border: #243044;
+  --color-divider: #1a2433;
+  --color-background: #0a0e14;
+  --color-bg-secondary: #161f2d;
+  --color-card: #101722;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(56, 208, 238, 0.04);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(56, 208, 238, 0.06);
+
+  --el-color-primary-light-3: #0d8aa3;
+  --el-color-primary-light-5: #0b6b80;
+  --el-color-primary-light-7: #0a4c5c;
+  --el-color-primary-light-8: #093e4c;
+  --el-color-primary-light-9: #08313c;
+  --el-color-primary-dark-2: #38d0ee;
+  --el-color-info: #8a9bb3;
+  color-scheme: dark;
+}
+
+/* 暗黑下的科技感：页面顶部一抹青色辉光，卡片与按钮带微弱发光边 */
+:root.dark body {
+  background:
+    radial-gradient(900px 420px at 85% -8%, rgba(15, 181, 212, 0.12), transparent 70%),
+    radial-gradient(700px 360px at -5% 105%, rgba(99, 102, 241, 0.08), transparent 70%),
+    var(--color-background);
+}
+:root.dark .el-button--primary:not(.is-plain):not(.is-text):not(.is-link) {
+  box-shadow: 0 0 14px rgba(15, 181, 212, 0.28);
+}

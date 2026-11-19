@@ -1,0 +1,14 @@
+node_modules/
+dist/
+vue-dist/
+.env
+*.js.map
+logs/
+*.log
+workspace/
+# 本机 FFmpeg 二进制，不纳入版本库（ffprobe.exe 超过 GitHub 100MB 限制）
+ffmpeg.exe
+ffprobe.exe
+# 用户自学数据（skill_manage/memory 工具运行时生成，全部为用户数据，非源码）
+ai/_users/
+config/video.local.json

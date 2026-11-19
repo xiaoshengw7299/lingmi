@@ -1,0 +1,39 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "灵米（LingMI，也写作灵米LingMI）AI 视频创作平台前端。广州市灵予科技有限公司运营，涵盖视频制作、一键成片、爆款复刻和视频工具。",
+  "author": "广州市灵予科技有限公司",
+  "homepage": "https://lingmi.ly.hb.cn/",
+  "license": "MIT",
+  "keywords": ["灵米", "LingMI", "灵米LingMI", "广州市灵予科技", "视频制作", "一键成片", "爆款复刻", "视频工具", "AI视频"],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -p tsconfig.app.json --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc -p tsconfig.app.json --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/vue": "^4.0.29",
+    "@element-plus/icons-vue": "^2.3.0",
+    "ai": "^7.0.29",
+    "axios": "^1.7.0",
+    "dayjs": "^1.11.0",
+    "element-plus": "^2.8.0",
+    "pinia": "^2.2.0",
+    "qrcode": "^1.5.4",
+    "socket.io-client": "^4.8.3",
+    "sortablejs": "^1.15.7",
+    "vue": "^3.5.0",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/sortablejs": "^1.15.9",
+    "@vitejs/plugin-vue": "^5.1.0",
+    "typescript": "^5.5.0",
+    "unplugin-auto-import": "^0.18.0",
+    "unplugin-vue-components": "^0.27.0",
+    "vite": "^5.4.0",
+    "vue-tsc": "^2.1.0"
+  }
+}

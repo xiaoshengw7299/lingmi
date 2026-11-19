@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+*.js.map
+.cursor
+.vscode
+*.env.production
+package-lock.json

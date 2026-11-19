@@ -1,0 +1,296 @@
+{
+  "$note": "全站模型目录。Atlas 上的模型对用户称为海外版；方舟、MiniMax、豆包语音直连官方。新增平台时给模型加 provider，并在 providers 里补一个客户端。",
+  "image": {
+    "default": "seedream-5",
+    "models": [
+      {
+        "id": "seedream-5",
+        "name": "豆包|Seedream 5.0 Pro",
+        "description": "豆包 Seedream 5.0 Pro · 文生图 / 多参考图，文字排版和指令遵循更强",
+        "tier": "flagship",
+        "provider": "ark",
+        "vendor": "bytedance",
+        "upstreamModel": "doubao-seedream-5-0-pro-260628",
+        "variants": {
+          "textToImage": { "model": "doubao-seedream-5-0-pro-260628" },
+          "edit": { "model": "doubao-seedream-5-0-pro-260628", "image": { "field": "image", "array": true } }
+        },
+        "ratios": ["9:16", "16:9", "1:1", "3:4", "4:3", "2:3", "3:2", "21:9"],
+        "defaultRatio": "9:16",
+        "resolutions": ["1.5K", "2K"],
+        "defaultResolution": "2K",
+        "sizeField": "size",
+        "sizeJoin": "x",
+        "sizeByRatio": {
+          "1.5K": { "1:1": "1536x1536", "4:3": "1792x1344", "3:4": "1344x1792", "16:9": "2048x1152", "9:16": "1152x2048", "3:2": "1872x1248", "2:3": "1248x1872", "21:9": "2352x1008" },
+          "2K": { "1:1": "2048x2048", "4:3": "2368x1776", "3:4": "1776x2368", "16:9": "2816x1584", "9:16": "1584x2816", "3:2": "2496x1664", "2:3": "1664x2496", "21:9": "3136x1344" }
+        },
+        "maxReferenceImages": 10
+      },
+      {
+        "id": "nano-banana-2",
+        "name": "谷歌|Nano Banana 2",
+        "description": "Google Nano Banana 2 · 海外版，文生图和多图编辑，速度快",
+        "tier": "flagship",
+        "provider": "atlas",
+        "vendor": "google",
+        "variants": {
+          "textToImage": { "model": "google/nano-banana-2/text-to-image" },
+          "edit": { "model": "google/nano-banana-2/edit", "image": { "field": "image", "array": true } }
+        },
+        "ratios": ["9:16", "16:9", "1:1", "3:4", "4:3", "3:2", "2:3", "4:5", "5:4", "21:9"],
+        "defaultRatio": "9:16",
+        "resolutions": ["1k", "2k", "4k"],
+        "defaultResolution": "1k",
+        "promptOptimizeModes": ["default", "high", "minimal"],
+        "defaultPromptOptimizeMode": "default",
+        "promptOptimizeField": "thinking_level",
+        "maxReferenceImages": 6
+      },
+      {
+        "id": "gpt-image-2.5",
+        "name": "OpenAI|GPT Image 2.5",
+        "description": "OpenAI GPT Image 2.5 Sunburst · 海外版，文字排版和指令遵循更强",
+        "tier": "flagship",
+        "provider": "atlas",
+        "vendor": "openai",
+        "variants": {
+          "textToImage": { "model": "openai/gpt-image-2.5-sunburst/text-to-image" },
+          "edit": { "model": "openai/gpt-image-2.5-sunburst/edit", "image": { "field": "images", "array": true } }
+        },
+        "ratios": ["9:16", "16:9", "1:1", "3:4", "4:3", "2:3", "3:2", "21:9"],
+        "defaultRatio": "9:16",
+        "resolutions": ["low", "medium", "high"],
+        "defaultResolution": "high",
+        "resolutionField": "quality",
+        "sizeField": "size",
+        "sizeJoin": "x",
+        "sizeByRatio": {
+          "low": { "1:1": "1024x1024", "4:3": "1024x768", "3:4": "768x1024", "16:9": "2048x1152", "9:16": "1152x2048", "3:2": "1536x1024", "2:3": "1024x1536", "21:9": "2560x1088" },
+          "medium": { "1:1": "1024x1024", "4:3": "1024x768", "3:4": "768x1024", "16:9": "2048x1152", "9:16": "1152x2048", "3:2": "1536x1024", "2:3": "1024x1536", "21:9": "2560x1088" },
+          "high": { "1:1": "1024x1024", "4:3": "1024x768", "3:4": "768x1024", "16:9": "2048x1152", "9:16": "1152x2048", "3:2": "1536x1024", "2:3": "1024x1536", "21:9": "2560x1088" }
+        },
+        "outputFormats": ["jpeg", "png"],
+        "defaultOutputFormat": "jpeg",
+        "maxReferenceImages": 10
+      }
+    ]
+  },
+  "video": {
+    "default": "minimax-h3",
+    "models": [
+      {
+        "id": "minimax-h3",
+        "name": "MiniMax|H3",
+        "description": "MiniMax H3 · 文生 / 图生 / 参考生视频，动作和物理感更强，最长 15 秒",
+        "tier": "flagship",
+        "provider": "minimax",
+        "vendor": "minimax",
+        "upstreamModel": "MiniMax-H3",
+        "variants": {
+          "textToVideo": { "model": "MiniMax-H3" },
+          "imageToVideo": { "model": "MiniMax-H3", "image": { "field": "image", "array": false }, "fixedRatio": "adaptive" },
+          "referenceToVideo": {
+            "model": "MiniMax-H3",
+            "image": { "field": "refers", "array": true, "shape": "url-object", "mediaType": "image" },
+            "video": { "field": "refers", "array": true, "shape": "url-object", "mediaType": "video" },
+            "audio": { "field": "refers", "array": true, "shape": "url-object", "mediaType": "audio" }
+          }
+        },
+        "minDuration": 4,
+        "maxDuration": 15,
+        "maxReferenceImages": 9,
+        "maxReferenceVideos": 3,
+        "maxReferenceAudios": 1,
+        "maxReferenceDurationSec": 15,
+        "ratios": ["9:16", "16:9", "1:1", "4:3", "3:4", "21:9"],
+        "defaultRatio": "9:16",
+        "resolutions": ["768P", "2K"],
+        "defaultResolution": "768P",
+        "ratioField": "ratio"
+      },
+      {
+        "id": "seedance-2.5",
+        "name": "豆包|Seedance 2.5",
+        "description": "豆包 Seedance 2.5 · 文生 / 图生 / 全能参考，最长 30 秒，原生配音",
+        "tier": "flagship",
+        "provider": "ark",
+        "vendor": "bytedance",
+        "upstreamModel": "doubao-seedance-2-5-260628",
+        "variants": {
+          "textToVideo": { "model": "doubao-seedance-2-5-260628" },
+          "imageToVideo": { "model": "doubao-seedance-2-5-260628", "image": { "field": "image", "array": false }, "fixedRatio": "adaptive" },
+          "referenceToVideo": {
+            "model": "doubao-seedance-2-5-260628",
+            "image": { "field": "reference_images", "array": true },
+            "video": { "field": "reference_videos", "array": true },
+            "audio": { "field": "reference_audios", "array": true }
+          }
+        },
+        "minDuration": 4,
+        "maxDuration": 30,
+        "maxReferenceImages": 30,
+        "maxReferenceVideos": 10,
+        "maxReferenceAudios": 10,
+        "maxReferenceFiles": 50,
+        "maxReferenceDurationSec": 30,
+        "ratios": ["9:16", "16:9", "1:1", "4:3", "3:4", "21:9", "adaptive"],
+        "defaultRatio": "9:16",
+        "resolutions": ["720p", "1080p"],
+        "defaultResolution": "720p",
+        "ratioField": "ratio",
+        "supportsGenerateAudio": true,
+        "audioField": "generate_audio",
+        "supportsWatermark": true
+      },
+      {
+        "id": "seedance-2.5-flash",
+        "name": "豆包|Seedance 2.5 Flash",
+        "description": "豆包 Seedance 2.5 Flash · 文生 / 图生 / 全能参考，生成速度约为旗舰 2 倍，价格更低，最长 30 秒",
+        "tier": "value",
+        "provider": "ark",
+        "vendor": "bytedance",
+        "upstreamModel": "doubao-seedance-2-5-flash-261115",
+        "variants": {
+          "textToVideo": { "model": "doubao-seedance-2-5-flash-261115" },
+          "imageToVideo": { "model": "doubao-seedance-2-5-flash-261115", "image": { "field": "image", "array": false }, "fixedRatio": "adaptive" },
+          "referenceToVideo": {
+            "model": "doubao-seedance-2-5-flash-261115",
+            "image": { "field": "reference_images", "array": true },
+            "video": { "field": "reference_videos", "array": true },
+            "audio": { "field": "reference_audios", "array": true }
+          }
+        },
+        "minDuration": 4,
+        "maxDuration": 30,
+        "maxReferenceImages": 10,
+        "maxReferenceVideos": 5,
+        "maxReferenceAudios": 5,
+        "maxReferenceFiles": 20,
+        "maxReferenceDurationSec": 30,
+        "ratios": ["9:16", "16:9", "1:1", "4:3", "3:4", "21:9", "adaptive"],
+        "defaultRatio": "9:16",
+        "resolutions": ["720p"],
+        "defaultResolution": "720p",
+        "ratioField": "ratio",
+        "supportsGenerateAudio": true,
+        "audioField": "generate_audio",
+        "supportsWatermark": true
+      },
+      {
+        "id": "seedance-2.5-overseas",
+        "name": "豆包|Seedance 2.5 海外版",
+        "description": "Seedance 2.5 海外版 · 文生 / 图生 / 全能参考，最长 30 秒，原生配音",
+        "tier": "flagship",
+        "provider": "atlas",
+        "vendor": "bytedance",
+        "variants": {
+          "textToVideo": { "model": "bytedance/seedance-2.5/text-to-video" },
+          "imageToVideo": {
+            "model": "bytedance/seedance-2.5/image-to-video",
+            "image": { "field": "image", "array": false },
+            "fixedRatio": "adaptive"
+          },
+          "referenceToVideo": {
+            "model": "bytedance/seedance-2.5/reference-to-video",
+            "image": { "field": "reference_images", "array": true },
+            "video": { "field": "reference_videos", "array": true },
+            "audio": { "field": "reference_audios", "array": true }
+          }
+        },
+        "minDuration": 4,
+        "maxDuration": 30,
+        "maxReferenceImages": 30,
+        "maxReferenceVideos": 10,
+        "maxReferenceAudios": 10,
+        "maxReferenceFiles": 50,
+        "maxReferenceDurationSec": 30,
+        "ratios": ["9:16", "16:9", "1:1", "4:3", "3:4", "21:9", "adaptive"],
+        "defaultRatio": "9:16",
+        "resolutions": ["720p", "1080p"],
+        "defaultResolution": "720p",
+        "ratioField": "ratio",
+        "supportsGenerateAudio": true,
+        "audioField": "generate_audio",
+        "supportsWatermark": true
+      },
+      {
+        "id": "seedance-2.5-flash-overseas",
+        "name": "豆包|Seedance 2.5 Flash 海外版",
+        "description": "Seedance 2.5 Flash 海外版 · 文生 / 图生 / 全能参考，生成速度约为旗舰 2 倍，价格更低，最长 30 秒",
+        "tier": "value",
+        "provider": "atlas",
+        "vendor": "bytedance",
+        "variants": {
+          "textToVideo": { "model": "bytedance/seedance-2.5-flash/text-to-video" },
+          "imageToVideo": {
+            "model": "bytedance/seedance-2.5-flash/image-to-video",
+            "image": { "field": "image", "array": false },
+            "fixedRatio": "adaptive"
+          },
+          "referenceToVideo": {
+            "model": "bytedance/seedance-2.5-flash/reference-to-video",
+            "image": { "field": "reference_images", "array": true },
+            "video": { "field": "reference_videos", "array": true },
+            "audio": { "field": "reference_audios", "array": true }
+          }
+        },
+        "minDuration": 4,
+        "maxDuration": 30,
+        "maxReferenceImages": 10,
+        "maxReferenceVideos": 5,
+        "maxReferenceAudios": 5,
+        "maxReferenceFiles": 20,
+        "maxReferenceDurationSec": 30,
+        "ratios": ["9:16", "16:9", "1:1", "4:3", "3:4", "21:9", "adaptive"],
+        "defaultRatio": "9:16",
+        "resolutions": ["720p"],
+        "defaultResolution": "720p",
+        "ratioField": "ratio",
+        "supportsGenerateAudio": true,
+        "audioField": "generate_audio",
+        "supportsWatermark": true
+      }
+    ]
+  },
+  "audio": {
+    "default": "doubao-tts",
+    "models": [
+      {
+        "id": "doubao-tts",
+        "name": "豆包|语音合成 2.0",
+        "description": "豆包语音合成 2.0 · 一键成片的付费配音",
+        "provider": "speech",
+        "vendor": "bytedance",
+        "upstreamModel": "seed-tts-2.0",
+        "variants": {
+          "tts": { "model": "seed-tts-2.0" }
+        }
+      }
+    ]
+  },
+  "llm": {
+    "default": "deepseek",
+    "models": [
+      {
+        "id": "deepseek",
+        "name": "DeepSeek|V4.1 Flash",
+        "description": "DeepSeek V4.1 Flash · 文案、脚本和智能体对话",
+        "model": "deepseek-v4-1-flash-261017",
+        "provider": "ark"
+      }
+    ]
+  },
+  "vision": {
+    "default": "deepseek",
+    "models": [
+      {
+        "id": "deepseek",
+        "name": "DeepSeek|V4.1 Flash",
+        "description": "DeepSeek V4.1 Flash · 图片和视频理解",
+        "model": "deepseek-v4-1-flash-261017",
+        "provider": "ark"
+      }
+    ]
+  }
+}

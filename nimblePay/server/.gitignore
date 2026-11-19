@@ -1,0 +1,5 @@
+node_modules
+dist
+vue-dist
+.env
+*.log

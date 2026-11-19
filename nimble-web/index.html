@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b8f5f" />
+    <meta
+      name="description"
+      content="灵米（LingMI，也写作灵米LingMI）是广州市灵予科技有限公司的 AI 视频创作平台。支持视频制作、一键成片、爆款复刻和视频工具，对话生成脚本、画面、配音和成片。按量计费，失败自动退回。"
+    />
+    <title>灵米 LingMI · AI 视频创作平台</title>
+    <!-- 首屏前同步套用主题，避免暗黑模式刷新时先闪一下白屏；key 与 utils/storage.ts 保持一致 -->
+    <script>
+      try {
+        var m = localStorage.getItem('lingmi_theme')
+        if (m === 'dark' || (!m && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
